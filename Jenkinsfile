@@ -19,7 +19,7 @@ pipeline {
 			reportDir: 'target/site/jacoco',
 			reportFiles: 'index.html',
 			reportName: 'Jacoco Report'
-		]}
+		])
             }
         }
     }
