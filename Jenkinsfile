@@ -16,6 +16,12 @@ pipeline {
                 sh "/tmp/apache-maven-3.6.3/bin/mvn test"
             }
         }
+        stage ('Code coverage') {
+            steps {
+                sh "/tmp/apache-maven-3.6.3/bin/mvn test"
+            }
+        }
+    }
     }
 }
 
