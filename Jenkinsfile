@@ -24,7 +24,7 @@ pipeline {
         }
         stage ('Docker build') {
             steps {
-                sh "docker build -t alexfum/calculator"
+                sh "docker build -t alexfum/calculator ."
             }
         }
         stage ('Docker push') {
