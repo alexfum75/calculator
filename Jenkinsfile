@@ -24,17 +24,17 @@ pipeline {
         }
         stage ('Docker build') {
             steps {
-                sh "docker build -t alexfum/calculator ."
+                sh "/tmp/docker build -t alexfum/calculator ."
             }
         }
         stage ('Docker push') {
             steps {
-                sh "docker push alexfum/calculator"
+                sh "/tmp/docker push alexfum/calculator"
             }
         }
         stage ('Deploy to staging') {
             steps {
-                sh "docker run -d --rm -p:8765:8080 --name calculator alexfum/calculator"
+                sh "/tmp/docker run -d --rm -p:8765:8080 --name calculator alexfum/calculator"
             }
         }
     }
