@@ -23,12 +23,12 @@ pipeline {
         }
         stage ('Docker build') {
             steps {
-                sh "/home/docker/bin/docker build -t alexfum/calc ."
+                sh "/home/docker/bin/docker build -t alexfum/calc /var/jenkins_home/workspace/calculator"
             }
         }
         stage ('Docker push') {
             steps {
-                sh "/home/docker/bin/docker push alexfum/calc"
+                sh "echo '/home/docker/bin/docker push alexfum/calc'"
             }
         }
         stage ('Deploy to staging') {
@@ -39,7 +39,7 @@ pipeline {
         stage ('Acceptance test') {
             steps {
 		sleep 60
-                sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+                sh "chmod +x /var/jenkins_home/workspace/calculator/acceptance_test.sh && /var/jenkins_home/workspace/calculator/acceptance_test.sh"
             }
         }
     }
