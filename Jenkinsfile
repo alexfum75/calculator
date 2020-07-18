@@ -33,15 +33,20 @@ pipeline {
         }
         stage ('Deploy to staging') {
             steps {
-                sh "/home/docker/bin/docker run -d --rm -p:8765:8080 --name calc alexfum/calc"
+                sh "echo '/home/docker/bin/docker run -d --rm -p:8765:8080 --name calc alexfum/calc'"
             }
         }
         stage ('Acceptance test') {
             steps {
 		sleep 60
-                sh "chmod +x /var/jenkins_home/workspace/calculator/acceptance_test.sh && /var/jenkins_home/workspace/calculator/acceptance_test.sh"
+                sh "echo 'chmod +x /var/jenkins_home/workspace/calculator/acceptance_test.sh && /var/jenkins_home/workspace/calculator/acceptance_test.sh'"
             }
         }
+    }
+    post {
+        always {
+ 	    sh "/home/docker/bin/docker stop calc"		
+	}
     }
 }
 
