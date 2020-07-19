@@ -28,7 +28,8 @@ pipeline {
         }
         stage ('Docker push') {
             steps {
-                sh "echo '/home/docker/bin/docker push alexfum/calc'"
+                sh "/home/docker/bin/docker login"
+                sh "/home/docker/bin/docker push alexfum/calc"
             }
         }
         stage ('Deploy to staging') {
