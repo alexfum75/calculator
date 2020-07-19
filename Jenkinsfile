@@ -28,7 +28,7 @@ pipeline {
         }
         stage ('Docker push') {
             steps {
-                sh "/home/docker/bin/docker push alexfum/calc"
+                sh "echo '/home/docker/bin/docker push alexfum/calc'"
             }
         }
         stage ('Deploy to staging') {
@@ -45,7 +45,7 @@ pipeline {
     }
     post {
         always {
- 	    sh "/home/docker/bin/docker stop calc"		
+ 	    sh "/home/docker/bin/docker stop alexfum/calc"		
 	}
     }
 }
