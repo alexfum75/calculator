@@ -31,7 +31,7 @@ pipeline {
         }
         stage ('Docker push') {
             steps {
-                sh "/home/docker/bin/docker push alexfum/calc:${BUILD_TIMESTAMP}"
+                sh "echo '/home/docker/bin/docker push alexfum/calc:${BUILD_TIMESTAMP}'"
             }
         }
         stage ('Update version') {
