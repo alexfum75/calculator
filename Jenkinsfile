@@ -47,8 +47,12 @@ pipeline {
         stage ('Parallelization') {
             steps {
 		parallel {
-			one: {echo "Parallel step 1"},
-			two: {echo "Parallel step 2"}
+			one: {
+				echo "Parallel step 1"
+			},
+			two: {
+				echo "Parallel step 2"
+			}
 		}
             }
         }
