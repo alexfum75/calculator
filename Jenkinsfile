@@ -26,7 +26,7 @@ pipeline {
         }
         stage ('Docker build') {
             steps {
-                sh "/home/docker/bin/docker build -t alexfum/calc:${BUILD_TIMESTAMP} /var/jenkins_home/workspace/calculator"
+                sh "/home/docker/bin/docker build -t alexfum/calc:${{BUILD_TIMESTAMP}} /var/jenkins_home/workspace/calculator"
             }
         }
         stage ('Docker push') {
