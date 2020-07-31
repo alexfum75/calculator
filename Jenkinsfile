@@ -65,7 +65,7 @@ pipeline {
     }
     post {
         always {
- 	    sh "/home/docker/bin/docker stop alexfum/calc"		
+ 	    sh "/home/docker/bin/docker stop alexfum/calc:${BUILD_TIMESTAMP}"		
 	}
     }
 }
