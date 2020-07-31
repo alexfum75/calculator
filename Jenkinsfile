@@ -41,7 +41,7 @@ pipeline {
         }
         stage ('Deploy to staging') {
             steps {
-                sh "echo '/home/docker/bin/docker run -d --rm -p:8765:8080 --name calc alexfum/calc:${BUILD_TIMESTAMP}'"
+                sh "/home/docker/bin/docker run -d --rm -p:8765:8080 --name calc alexfum/calc:${BUILD_TIMESTAMP}"
             }
         }
         stage ('Parallelization') {
