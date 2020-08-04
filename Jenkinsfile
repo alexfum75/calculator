@@ -37,6 +37,7 @@ pipeline {
         stage ('Update version') {
             steps {
                 sh "echo 'sed -i ''s/{{VERSION}}/${BUILD_TIMESTAMP}/g'' calc.yaml'"
+                sh "service hazelcast start"
             }
         }
         stage ('Deploy to staging') {
