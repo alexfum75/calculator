@@ -42,6 +42,7 @@ pipeline {
         }
         stage ('Deploy to staging') {
             steps {
+                sleep 40
                 sh "/home/docker/bin/docker run -d --rm -p:8765:8080 --name calc alexfum/calc:${BUILD_TIMESTAMP}"
             }
         }
@@ -60,7 +61,7 @@ pipeline {
         stage ('Acceptance test') {
             steps {
 		sleep 60
-                sh "echo 'chmod +x /var/jenkins_home/workspace/calculator/acceptance_test.sh && /var/jenkins_home/workspace/calculator/acceptance_test.sh'"
+                sh "chmod +x /var/jenkins_home/workspace/calculator/acceptance_test.sh && /var/jenkins_home/workspace/calculator/acceptance_test.sh"
             }
         }
     }
